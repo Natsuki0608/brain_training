@@ -1,17 +1,17 @@
 let element;
 let count = 0;
-let randomNum1, randomNum2, answer;
-let maxNum = 999;
-let minNum = 100;
+let randomNum;
+let answer = 0;
+let maxNum = 99;
+let minNum = 10;
 
 //ランダムな数字を生成する関数
 function randomNumber() {
-    randomNum1 = Math.floor(Math.random() * (maxNum + 1 - minNum)) + minNum;
-    randomNum2 = Math.floor(Math.random() * (maxNum + 1 - minNum)) + minNum;
-    document.getElementById("num1").textContent = randomNum1;
-    document.getElementById("num2").textContent = randomNum2;
-    answer = randomNum1 + randomNum2;
+    randomNum = Math.floor(Math.random() * (maxNum + 1 - minNum)) + minNum;
+    document.getElementById("num").textContent = randomNum;
+    answer += randomNum;
     document.getElementById("answerCount").textContent = count;
+    console.log(answer);
 }
 
 //初期表示
@@ -24,5 +24,6 @@ function inputCheck() {
         element.value = "";
         count += 1;
         randomNumber();
+        document.getElementById("start").classList.add("hidden");
     }
 }
